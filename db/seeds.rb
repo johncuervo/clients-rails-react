@@ -8,7 +8,7 @@
 
 2.times do |i|
   User.create(
-    email: "user-#{i+1}@email.com", 
+    email: "user-#{i}@email.com", 
     password: "password#{i}",
     password_confirmation: "password#{i}"
   )
@@ -16,8 +16,8 @@ end
 
 30.times do |i|
   Client.find_or_create_by(
-    name: "name-#{i+1}",
-    email: "client-#{i+1}@email.com", 
+    name: "name-#{i}",
+    email: "client-#{i}@email.com", 
     city: "city-#{i}",
     company: "company-#{i}"
   )
