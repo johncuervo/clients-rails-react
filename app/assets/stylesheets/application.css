@@ -13,3 +13,14 @@
  *= require_tree .
  *= require_self
  */
+
+ .gradient-custom {
+  /* fallback for old browsers */
+  background: #5b595e;
+
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to right, rgb(82, 79, 85), rgb(6, 59, 151));
+
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right, rgb(82, 79, 85), rgb(1, 18, 48))
+}

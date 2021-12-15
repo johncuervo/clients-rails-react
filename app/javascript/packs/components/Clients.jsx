@@ -8,9 +8,9 @@ class Clients extends React.Component {
     return (
       <>
         <hr />
-        <div className="table-responsive">
-          <table className="table">
-            <thead>
+        <div className="table-responsive ">
+          <table className="table table-striped">
+            <thead className="table-dark">
               <tr>
                 <th scope="col"> Name </th>
                 <th scope="col"> Email </th>
