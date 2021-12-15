@@ -1,4 +1,4 @@
 class Client < ApplicationRecord
   validates :name, :email, :city, :company , presence: true
-  validates :email, format: { with: URI::MailTo::EMAIL_REGEXP } 
+  validates :email, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP } 
 end

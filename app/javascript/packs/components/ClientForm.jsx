@@ -27,9 +27,10 @@ class ClientForm extends React.Component {
       .then(response => {
         const client = response.data
         this.props.createClient(client)
+        this.props.clearErrors(); 
       })
       .catch(error => {
-        console.log(error)
+        this.props.handleErrors(error);
       })
     e.target.reset()
   }
@@ -37,52 +38,52 @@ class ClientForm extends React.Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit} className="my-3">
-        <div className="form-row">
-          <div className="form-group col-md-4">
+        <div className="form-row row">
+          <div className="form-group col-md-4 m-2">
             <input
               type="text"
               name="name"
               ref={this.name}
-              required
+              // required
               className="form-control"
               id="name"
               placeholder="Write your name..."
             />
           </div>
-          <div className="form-group col-md-4">
+          <div className="form-group col-md-4 m-2">
             <input
               type="text"
               name="email"
               ref={this.email}
-              required
+              // required
               className="form-control"
               id="email"
               placeholder="Write your Email..."
             />
           </div>
-          <div className="form-group col-md-4">
+          <div className="form-group col-md-4 m-2">
             <input
               type="text"
               name="city"
               ref={this.city}
-              required
+              // required
               className="form-control"
               id="city"
               placeholder="Write your City..."
             />
           </div>
-          <div className="form-group col-md-4">
+          <div className="form-group col-md-4 m-2">
             <input
               type="text"
               name="company"
               ref={this.company}
-              required
+              // required
               className="form-control"
               id="company"
               placeholder="Write your Company..."
             />
           </div>
-          <div className="form-group col-md-4">
+          <div className="form-group col-md-4  m-2">
             <button className="btn btn-outline-success btn-block">
               Add Client
             </button>
@@ -97,4 +98,6 @@ export default ClientForm
 
 ClientForm.propTypes = {
   createClient: PropTypes.func.isRequired,
+  handleErrors: PropTypes.func.isRequired,
+  clearErrors: PropTypes.func.isRequired
 }

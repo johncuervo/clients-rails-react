@@ -1,6 +1,7 @@
 class Api::V1::ClientsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_client, only: [:show, :edit, :update, :destroy]
+  skip_before_action :verify_authenticity_token, only: [:create, :destroy]
 
   # GET /clients
   # GET /clients.json
@@ -32,8 +33,6 @@ class Api::V1::ClientsController < ApplicationController
   # POST /clients.json
   def create
     @client = Client.new(client_params)
-
-
     if @client.save
       render json: @client
     else
@@ -50,18 +49,18 @@ class Api::V1::ClientsController < ApplicationController
   # DELETE /clients/1.json
   def destroy
     @client.destroy
-
     render json: { notice: 'client was successfully removed.' }
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_client
+      byebug
       @client = Client.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
     def client_params
-      params.permit(:name, :email, :city, :company)
+      params.require(:client).permit(:name, :email, :city, :company)
     end
 end

@@ -17,4 +17,5 @@ require('channels')
 // require("./hello_react");
 require("./components/TodoApp");
 require('bootstrap')
+// require('popper.js');
 import 'bootstrap/dist/css/bootstrap'
