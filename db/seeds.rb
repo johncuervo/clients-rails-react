@@ -14,7 +14,7 @@
   )
 end
 
-30.times do |i|
+10.times do |i|
   Client.find_or_create_by(
     name: "name-#{i}",
     email: "client-#{i}@email.com", 
